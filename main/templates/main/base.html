@@ -43,7 +43,7 @@
                 <div class="row">
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="{% url 'home' %}">
                                 <img src="{% static 'images/logo.png' %}" alt="Goru"/>
                             </a>
                         </div>
@@ -54,44 +54,19 @@
                                 <a href="javascript: void(0);"><span>Menu</span><i class="twi-bars"></i></a>
                             </div>
                             <ul>
-                                <li class="active menu-item-has-children">
-                                    <a href="javascript:void(0);">Home</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="index.html">Home One</a></li>
-                                        <li><a href="index2.html">Home Two</a></li>
-                                    </ul>
+                                <li><a href="{% url 'home' %}">Home</a></li>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <a href="javascript:void(0);">Shop</a>
                                     <ul class="sub-menu">
-                                        <li><a href="shop-fullwidth.html">Shop Fullwidth</a></li>
-                                        <li><a href="shop-left-sidebar.html">Shop Left Sidebar</a></li>
-                                        <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
-                                        <li><a href="single-product.html">Shop Details</a></li>
-                                        <li><a href="cart.html">Cart Page</a></li>
-                                        <li><a href="checkout.html">Checkout Page</a></li>
-                                        <li><a href="wishlist.html">Wishlist Page</a></li>
+                                        <li><a href="shop-right-sidebar.html">Catalog</a></li>
+                                        <li><a href="cart.html">Cart</a></li>
+                                        <li><a href="wishlist.html">Wishlist</a></li>
                                     </ul>
                                 </li>
-                                <li class="menu-item-has-children">
-                                    <a href="javascript:void(0);">Pages</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="about.html">About Page</a></li>
-                                        <li><a href="newsletter.html">Newsletter Page</a></li>
-                                        <li><a href="login-register.html">Login Register Page</a></li>
-                                        <li><a href="404.html">404 Page</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="javascript:void(0);">News</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog-right-sidebar.html">News Right Sidebar</a></li>
-                                        <li><a href="blog-left-sidebar.html">News Left Sidebar</a></li>
-                                        <li><a href="blog-fullwidth.html">News Full Width</a></li>
-                                        <li><a href="blog-details.html">News Details</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="blog-right-sidebar.html">News</a></li>
+                                <li><a href="{% url 'about' %}">About</a></li>
+                                <li><a href="{% url 'contacts' %}">Contacts</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -132,64 +107,11 @@
         {% block content_2 %} 
         {% endblock %}
         
-
-        <!-- Service Section Start -->
-        <section class="service-section {% block ab %} {% endblock %}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-service">
-                            <img src="{% static 'images/home/truck.png' %}" alt="">
-                            <h4>100% Free Shipping</h4>
-                            <p>We ship all our products for free as long as you buying within the USA.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-service">
-                            <img src="{% static 'images/home/headphone.png' %}" alt="">
-                            <h4>24/7 Support</h4>
-                            <p>Our support team is extremely active, you will get response within 2 minutes.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-service">
-                            <img src="{% static 'images/home/undo.png' %}" alt="">
-                            <h4>30 Day Return</h4>
-                            <p>Our 30 day return program is open from customers, just fill up a simple form.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Service Section End -->
-
         {% block content_3 %} 
         {% endblock %}
 
-        <!-- Client Section Start -->
-        <section class="client-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="client-logo owl-carousel">
-                            <a href="#"><img src="{% static 'images/home/client-logo/1.png' %}" alt=""></a>
-                            <a href="#"><img src="{% static 'images/home/client-logo/2.png' %}" alt=""></a>
-                            <a href="#"><img src="{% static 'images/home/client-logo/3.png' %}" alt=""></a>
-                            <a href="#"><img src="{% static 'images/home/client-logo/4.png' %}" alt=""></a>
-                            <a href="#"><img src="{% static 'images/home/client-logo/5.png' %}" alt=""></a>
-                            <a href="#"><img src="{% static 'images/home/client-logo/1.png' %}" alt=""></a>
-                            <a href="#"><img src="{% static 'images/home/client-logo/2.png' %}" alt=""></a>
-                            <a href="#"><img src="{% static 'images/home/client-logo/3.png' %}" alt=""></a>
-                            <a href="#"><img src="{% static 'images/home/client-logo/4.png' %}" alt=""></a>
-                            <a href="#"><img src="{% static 'images/home/client-logo/5.png' %}" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Client Section End -->
-
-        {% block content_4 %} {% endblock %}
+        {% block content_4 %} 
+        {% endblock %}
 
 
         <!-- Footer Start -->
@@ -199,7 +121,7 @@
                     <div class="col-lg-3 col-md-4">
                         <aside class="widget about-widget">
                             <div class="foo-logo">
-                                <a href="index.html"><img src="{% static 'images/logo.png' %}" alt=""/></a>
+                                <a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" alt=""/></a>
                             </div>
                             <p>
                                 Sed ut perspiciatis unde omnis iste natus er sit voluptatem accusantium dolore.ea commo
