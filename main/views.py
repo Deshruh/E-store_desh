@@ -6,7 +6,11 @@ def index(request):
 
 
 def login(request):
-    return render(request, "main/login-register.html")
+    return render(request, "main/login.html")
+
+
+def registration(request):
+    return render(request, "main/registration.html")
 
 
 def about_us(request):

@@ -57,14 +57,14 @@
                                 <li><a href="{% url 'home' %}">Home</a></li>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="javascript:void(0);">Shop</a>
+                                    <a href="{% url 'catalog' %}">Shop</a>
                                     <ul class="sub-menu">
-                                        <li><a href="shop-right-sidebar.html">Catalog</a></li>
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
+                                        <li><a href="{% url 'catalog' %}">Catalog</a></li>
+                                        <li><a href="{% url 'cart' %}">Cart</a></li>
+                                        <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="blog-right-sidebar.html">News</a></li>
+                                <li><a href="{% url 'articles' %}">News</a></li>
                                 <li><a href="{% url 'about' %}">About</a></li>
                                 <li><a href="{% url 'contacts' %}">Contacts</a></li>
                             </ul>
