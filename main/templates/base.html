@@ -38,7 +38,7 @@
         <!-- Preloader End -->
 
         <!-- Header Start -->
-        <header class="header-01 {% block inner_header %} {% endblock %} fix-header">
+        <header class="header-01 {% if banner %}inner-header{% endif %} fix-header">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-2 col-md-2">
@@ -100,6 +100,27 @@
             </div>
         </section>
         <!-- Popup Search -->
+
+        {% if banner %}
+        <!-- Banner Start -->
+        <section class="page-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="round-shape"></span>
+                        <h2 class="banner-title">{{name_page}}</h2>
+                        <div class="bread-crumb"><a href="index.html">Home</a> / {{name_page}}</div>
+                        {% if banner_image %}
+                        <div class="banner-img">
+                            <img src="{% static 'images/shop/banner.png' %}" alt="">
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>    
+        <!-- Banner End -->
+        {% endif %}
 
         {% block content_1 %}
         {% endblock %}
