@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+
+{% block content_1 %}
+
+ <!-- Login Register Section Start -->
+ <section class="login-section">
+    <div class="container">
+        <div class="">
+            <div class="col-lg-6 col-md-6">
+                {% if messages or form.non_field_errors %}
+                <div class="alert 
+                {% if messages %}alert-success{% else %}alert-warning{% endif %} 
+                alert-dismissible fade show" role="alert" style="margin-top: 50px;">
+                    {% if messages %}
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    {% else %}
+                        {{ form.non_field_errors}}                        
+                    {% endif %}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                {% endif %}
+                <h3 class="sec-title">Login your account</h3>
+                <p class="sec-desc">
+                    Login to your account to discovery all great features in this site
+                </p>
+                <div class="login-form">
+                    <form action="{% url 'login' %}" method="post">
+                        {% csrf_token %}
+                        {{ form.username }}
+                        {{ form.password }}
+                        {% comment %} <div class="keep-log-regi">
+                            <input type="radio" id="login" name="login" value="keep-login">
+                            <label for="login">Keep me logged in</label>   
+                        </div>  {% endcomment %}
+                        <input type="submit" name="submit" value="login">
+                        <a href="#", style = 'margin-left:0; margin:10px 0px 0px 0px;'>Forgot your password?</a>
+                    </form>
+                </div>
+                <div class="social-log-regi">
+                    <h5>OR LOGIN WITH</h5>
+                    <a href="#"><i class="twi-facebook-f"></i></a>
+                    <a href="#"><i class="twi-twitter"></i></a>
+                    <a href="#"><i class="twi-google-plus-g"></i></a>
+                    <a href="#"><i class="twi-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Login Register Section End -->
+{% endblock %}
