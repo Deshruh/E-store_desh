@@ -76,8 +76,12 @@
                             <a class="select-country" href="javascript:void(0);"><img src="{% static 'images/flag.png' %}" alt=""/>Eng</a>
                             <a class="select-currency" href="javascript:void(0);"><i class="twi-dollar-sign"></i>Usd</a>
                             {% if user.is_authenticated %}
-                                <a class="user-login" href="{% url 'profile' %}"><i class="twi-user-circle"></i><span>Profile</span></a>
                                 <a class="user-login" href="{% url 'logout' %}"><i class="twi-door-open"></i><span>Log out</span></a>
+                                <a class="user-login" href="{% url 'profile' %}"><i class="twi-user-circle"></i><span>Profile</span></a>
+                                <a class="carts" href="javascript:void(0);">
+                                    <span>4</span>
+                                    <img src="{% static 'images/cart.png' %}" alt="">
+                                </a>
                                 {% if user.is_superuser or user.is_staff %}
                                     <a class="user-login" href="{% url 'admin:index' %}"><i class="twi-server"></i><span>Admin</span></a>
                                 {% endif %}

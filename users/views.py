@@ -36,7 +36,8 @@ def register(request):
         form = UserRegistrationForm(data=request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Congratulations! You registrated success!')
+            messages.success(
+                request, 'Congratulations! You registrated success!')
             return redirect(reverse('login'))
     else:
         form = UserRegistrationForm()
@@ -50,10 +51,12 @@ def register(request):
     }
     return render(request, "users/registration.html", context)
 
+
 @login_required
 def profile(request):
     if request.method == "POST":
-        form = UserProfileForm(instance=request.user, data=request.POST, files=request.FILES)
+        form = UserProfileForm(instance=request.user,
+                               data=request.POST, files=request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile changed success')
@@ -68,6 +71,7 @@ def profile(request):
         "form": form
     }
     return render(request, 'users/profile.html', context)
+
 
 @login_required
 def logout(request):
