@@ -9,6 +9,7 @@
         <div class="row">
             <div class="col-md-12">
                 <form class="woocommerce-cart-form" action="#">
+                    {% if carts %}
                     <table class="cart-table">
                         <thead>
                             <tr>
@@ -20,70 +21,40 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="cart-item">
-                                <td class="product-thumbnail-title">
-                                    <a href="#">
-                                        <img src="{%static 'images/cart/1.jpg'%}" alt="">
-                                    </a>
-                                    <a class="product-name" href="#">Wirless Headset</a> 
-                                </td>
-                                <td class="product-unit-price">
-                                    <div class="product-price clearfix">
-                                        <span class="price">
-                                            <span><span class="woocommerce-Price-currencySymbol">$</span>79.00</span>
-                                        </span>           
-                                    </div>
-                                </td>
-                                <td class="product-quantity clearfix">
-                                    <div class="quantityd clearfix">
-                                        <button class="qtyBtn btnMinus"><span>-</span></button>
-                                        <input name="qty" value="1" title="Qty" class="input-text qty text carqty" type="text">
-                                        <button class="qtyBtn btnPlus">+</button>
-                                    </div>
-                                </td>
-                                <td class="product-total">
-                                    <div class="product-price clearfix">
-                                        <span class="price">
-                                            <span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span>
-                                        </span>           
-                                    </div>
-                                </td>
-                                <td class="product-remove">
-                                    <a href="#"></a>
-                                </td>
-                            </tr>
-                            <tr class="cart-item">
-                                <td class="product-thumbnail-title">
-                                    <a href="#">
-                                        <img src="{%static 'images/cart/2.jpg'%}" alt="">
-                                    </a>
-                                    <a class="product-name" href="#">VRBOX Gaming</a> 
-                                </td>
-                                <td class="product-unit-price">
-                                    <div class="product-price clearfix">
-                                        <span class="price">
-                                            <span><span class="woocommerce-Price-currencySymbol">$</span>142.00</span>
-                                        </span>           
-                                    </div>
-                                </td>
-                                <td class="product-quantity clearfix">
-                                    <div class="quantityd clearfix">
-                                        <button class="qtyBtn btnMinus"><span>-</span></button>
-                                        <input name="qty" value="1" title="Qty" class="input-text qty text carqty" type="text">
-                                        <button class="qtyBtn btnPlus">+</button>
-                                    </div>
-                                </td>
-                                <td class="product-total">
-                                    <div class="product-price clearfix">
-                                        <span class="price">
-                                            <span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span>
-                                        </span>           
-                                    </div>
-                                </td>
-                                <td class="product-remove">
-                                    <a href="#"></a>
-                                </td>
-                            </tr>
+                            {% for cart in carts %}
+                                <tr class="cart-item">
+                                    <td class="product-thumbnail-title">
+                                        <a href="#">
+                                            <img src="{%static 'images/cart/1.jpg'%}" alt="">
+                                        </a>
+                                        <a class="product-name" href="#">{{ cart.product.name }}</a> 
+                                    </td>
+                                    <td class="product-unit-price">
+                                        <div class="product-price clearfix">
+                                            <span class="price">
+                                                <span><span class="woocommerce-Price-currencySymbol">$</span>{{ cart.product.price }}</span>
+                                            </span>           
+                                        </div>
+                                    </td>
+                                    <td class="product-quantity clearfix">
+                                        <div class="quantityd clearfix">
+                                            <button class="qtyBtn btnMinus"><span>-</span></button>
+                                            <input name="qty" value="1" title="Qty" class="input-text qty text carqty" type="text">
+                                            <button class="qtyBtn btnPlus">+</button>
+                                        </div>
+                                    </td>
+                                    <td class="product-total">
+                                        <div class="product-price clearfix">
+                                            <span class="price">
+                                                <span><span class="woocommerce-Price-currencySymbol">$</span>{{ cart.product.price }}</span>
+                                            </span>           
+                                        </div>
+                                    </td>
+                                    <td class="product-remove">
+                                        <a href="{% url 'cart_remove' cart.id %}"></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
                             <tr>
                                 <td colspan="6" class="actions">
                                     <button type="submit" class="button clear-cart">Clear Shopping Cart</button>
@@ -129,6 +100,10 @@
                             </div>
                         </div>
                     </div>
+                    {% else %}
+                    <div class="mt-3 mb-3 text-center" style='font-size:30px;'>
+                        Your cart is empty
+                    {% endif %}
                 </form>
             </div>
         </div>
